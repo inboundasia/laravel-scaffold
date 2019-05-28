@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Policies;
+
+use App\Models\User;
+use App\Models\{{ ClassifyModelName }};
+use Illuminate\Auth\Access\HandlesAuthorization;
+
+class {{ ClassifyModelName }}Policy
+{
+    use HandlesAuthorization;
+
+    /**
+     * Create a new policy instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    public function index(User $user)
+    {
+        return true;
+    }
+
+    public function store(User $user)
+    {
+        return true;
+    }
+
+    public function update(User $user, {{ ClassifyModelName }} ${{ CamelizeModelName }})
+    {
+        return true;
+    }
+
+    public function destroy(User $user, {{ ClassifyModelName }} ${{ CamelizeModelName }})
+    {
+        return true;
+    }
+}

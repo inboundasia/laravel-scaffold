@@ -1,0 +1,14 @@
+<?php
+
+namespace App\Repositories;
+
+use App\Models\{{ ClassifyModelName }};
+use Spatie\QueryBuilder\QueryBuilder;
+
+class {{ ClassifyModelName }}Repository
+{
+    public function newQuery()
+    {
+        return QueryBuilder::for({{ ClassifyModelName }}::class);
+    }
+}

@@ -1,0 +1,59 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\{{ ClassifyModelName }};
+use Illuminate\Http\Request;
+use App\Http\Requests\{{ ClassifyModelName }}Store;
+use App\Http\Requests\{{ ClassifyModelName }}Update;
+use App\Http\Resources\{{ ClassifyModelName }}Resource;
+use App\Repositories\{{ ClassifyModelName }}Repository;
+use App\Http\Resources\{{ ClassifyModelName }}ResourceCollection;
+
+class {{ ClassifyModelName }}Controller extends Controller
+{
+    public function index()
+    {
+        $this->authorize('index', {{ ClassifyModelName }}::class);
+
+        ${{ PluralizeModelName }} = (new {{ ClassifyModelName }}Repository)->newQuery();
+
+        return new {{ ClassifyModelName }}ResourceCollection(${{ PluralizeModelName }});
+    }
+
+    public function show({{ ClassifyModelName }} ${{ CamelizeModelName }})
+    {
+        return new {{ ClassifyModelName }}Resource(${{ CamelizeModelName }});
+    }
+
+    public function store({{ ClassifyModelName }}Store $request)
+    {
+        $this->authorize('store', {{ ClassifyModelName }}::class);
+
+        $data = $request->validated();
+
+        ${{ CamelizeModelName }} = {{ ClassifyModelName }}::create($data);
+
+        return new {{ ClassifyModelName }}Resource(${{ CamelizeModelName }});
+    }
+
+    public function update({{ ClassifyModelName }}Update $request, {{ ClassifyModelName }} ${{ CamelizeModelName }})
+    {
+        $this->authorize('update', ${{ CamelizeModelName }});
+
+        $data = $request->validated();
+
+        ${{ CamelizeModelName }}->update($data);
+
+        return new {{ ClassifyModelName }}Resource(${{ CamelizeModelName }});
+    }
+
+    public function destroy({{ ClassifyModelName }} ${{ CamelizeModelName }})
+    {
+        $this->authorize('destroy', ${{ CamelizeModelName }});
+
+        ${{ CamelizeModelName }}->delete();
+
+        return new {{ ClassifyModelName }}Resource(${{ CamelizeModelName }});
+    }
+}

@@ -1,0 +1,1 @@
+php command.php --path=/Users/rolichung/goeducation/marketing-api-goeducation --model=Price

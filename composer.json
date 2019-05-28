@@ -1,0 +1,13 @@
+{
+    "name": "inboundasia/laravel-scaffold",
+    "authors": [
+        {
+            "name": "Roli",
+            "email": "kuroridoplayer@gmail.com"
+        }
+    ],
+    "require": {
+        "splitbrain/php-cli": "^1.1",
+        "doctrine/inflector": "^1.3"
+    }
+}
