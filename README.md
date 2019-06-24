@@ -1,1 +1,1 @@
-php command.php --path=/Users/rolichung/goeducation/marketing-api-goeducation --model=Price
+php command.php --path={laravel project base path} --model=Price
